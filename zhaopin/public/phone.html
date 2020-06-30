@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="企明星,剑鱼标讯">
+    <meta name="description" content="企明星,剑鱼标讯">
+    <meta name="author" content="企明星,剑鱼标讯">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-page-mode" content="app">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if (process.env.NODE_ENV === 'production') { %>
+    <link href="https://cdn.bootcss.com/vue/2.6.11/vue.min.js" rel="preload" as="script" />
+    <link href="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js" rel="preload" as="script" />
+    <link href="https://cdn.bootcss.com/vuex/3.1.2/vuex.min.js" rel="preload" as="script" />
+    <link href="https://cdn.bootcss.com/axios/0.19.2/axios.min.js" rel="preload" as="script" />
+    <link href="https://cdn.bootcss.com/js-cookie/2.2.1/js.cookie.min.js" rel="preload" as="script" />
+    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js"></script>
+    <script src="https://cdn.bootcss.com/vuex/3.1.2/vuex.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.5.7/lib/vant.min.js"></script>
+    <% } %>
+  </head>
+  <body>
+    <noscript>
+      <strong>JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app-phone-page"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
