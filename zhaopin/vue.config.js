@@ -22,21 +22,13 @@ module.exports = {
   devServer: {
     proxy: {
       '/ent-api': {
-        target: 'http://web-qmxrjj.jianyu360.cn',
+        target: 'https://www.easy-mock.com/mock/5e9ea374f7627b3e9778eb5e/index',
         // target: 'http://192.168.3.207:815',
         changeOrigin: true,
         pathRewrite: {
           '^/ent-api': ''
         }
       },
-      '/gov-api': {
-        target: 'http://web-jydev-wky.jianyu360.cn',
-        // target: 'http//:192.168.20.135:815',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/gov-api': ''
-        }
-      }
     }
   },
   pages,

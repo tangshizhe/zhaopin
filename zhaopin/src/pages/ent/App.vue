@@ -1,8 +1,25 @@
 <template>
   <div id="app">
     <router-view/>
+    <keep-alive>
+      <FooterGuideVue></FooterGuideVue>
+    </keep-alive>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import FooterGuideVue from '../../components/FooterGuide.vue'
+@Component({
+  components: {
+    FooterGuideVue
+  },
+  methods: {}
+})
+export default class Components extends Vue {
+
+}
+</script>
 
 <style lang="scss">
   #app {
@@ -13,29 +30,23 @@
     width: 100%;
     height: 100%;
     position: relative;
-  }
-
-  .account-list {
-    .deposit-bank {
-      color: #5F5E64;
-      font-size: 12px;
-      line-height: 18px;
-    }
-    .card-number {
-      margin: 8px 0 17px;
-      color: #171826;
-      font-size: 16px;
-      line-height: 20px;
-    }
-    .van-cell__label {
+    .footer_guide{
+      position: absolute;
+      bottom: 0;
       display: flex;
+      justify-content: space-around;
       align-items: center;
-      color: #9B9CA3;
-      font-size: 12px;
-      line-height: 18px;
-      span {
-        margin-right: 8px;
+      width: 100%;
+      height: 66px;
+      background: #fff;
+      .guide_item{
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        .item_text{
+          font-size: .4rem;
+        }
       }
     }
-}
+  }
 </style>
