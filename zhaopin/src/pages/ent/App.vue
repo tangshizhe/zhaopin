@@ -10,9 +10,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import FooterGuideVue from '../../components/FooterGuide.vue'
+import { Icon } from 'vant'
 @Component({
   components: {
-    FooterGuideVue
+    FooterGuideVue,
+    [Icon.name]: Icon
   },
   methods: {}
 })
@@ -39,8 +41,12 @@ export default class Components extends Vue {
       width: 100%;
       height: 66px;
       background: #fff;
+      .on{
+        color: #2AB;
+      }
       .guide_item{
         display: flex;
+        flex-direction: column;
         justify-items: center;
         align-items: center;
         .item_text{

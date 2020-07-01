@@ -1,17 +1,29 @@
 <template>
-  <layout>
-    <template v-slot:main></template>
-    <template v-slot:footer></template>
-  </layout>
+  <div class="j-container worker">
+    <div class="j-header">
+      <span class="header-title">职位</span>
+      <span class="header-right">
+        <van-icon name="plus" />
+        <van-icon name="search" />
+      </span>
+    </div>
+    <div class="j-main">
+      <slot name="main"></slot>
+    </div>
+    <div class="j-footer">
+      <slot name="footer"></slot>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Cell, CellGroup } from 'vant'
+import { Cell, CellGroup, Icon } from 'vant'
 import { mapActions } from 'vuex'
 @Component({
   components: {
     [Cell.name]: Cell,
+    [Icon.name]: Icon,
     [CellGroup.name]: CellGroup
   },
   methods: {
@@ -36,6 +48,54 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.worker{
+  .j-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 26px 12px 6px;  /* no */
+    font-size: 17px;
+    background-color: #fff;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;  /* no */
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 65%, transparent 35%);
+    }
+    .header-left,
+    .header-title,
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .header-left.hide,
+    .header-right.hide {
+      visibility: hidden;
+    }
+
+    .header-left {
+      color: #5f5e64;
+      color: #444;
+      font-size: 20px;
+    }
+    .header-title {
+      color: #171826;
+    }
+    .header-right {
+      height: 100%;
+      min-width: 20px;
+      .van-icon-plus,.van-icon-search{
+        font-size: .48rem;
+        margin-left: .4rem;
+      }
+    }
+  }
+}
 
 .j-tag{
   display: flex;
