@@ -48,5 +48,30 @@ export default class extends Vue {}
 </script>
 
 <style lang="scss">
-
+    .footer_guide{
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 66px;
+      background: #fff;
+      box-shadow: 0px -2px 8px rgba(54, 147, 179, 0.051);
+      .on{
+        color: #2AB;
+      }
+      .guide_item{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        .item_icon{
+            font-size: .48rem;
+        }
+        .item_text{
+          font-size: .4rem;
+        }
+      }
+    }
 </style>

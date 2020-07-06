@@ -1,7 +1,11 @@
 <template>
   <layout>
     <template v-slot:main></template>
-    <template v-slot:footer></template>
+    <template v-slot:footer>
+      <keep-alive>
+        <FooterGuideVue></FooterGuideVue>
+      </keep-alive>
+    </template>
   </layout>
 </template>
 
@@ -9,8 +13,10 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { Cell, CellGroup } from 'vant'
 import { mapActions } from 'vuex'
+import FooterGuideVue from '@/components/FooterGuide.vue'
 @Component({
   components: {
+    FooterGuideVue,
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup
   },

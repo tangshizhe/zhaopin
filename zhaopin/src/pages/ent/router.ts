@@ -30,5 +30,13 @@ export default [
     meta: {
       title: '我的'
     }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "ent-main" */ './views/mine/login.vue'),
+    meta: {
+      title: '登录'
+    }
   }
 ]

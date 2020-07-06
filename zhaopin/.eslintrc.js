@@ -15,6 +15,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-any': [0, { 'ignore-rest-args': 0 }],
+    'no-tabs': 'off',
     '@typescript-eslint/no-explicit-any': ['off'],
     '@typescript-eslint/camelcase': ['off']
   }
