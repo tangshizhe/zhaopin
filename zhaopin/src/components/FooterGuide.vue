@@ -10,14 +10,14 @@
         <!--发现-->
         <span class="guide_item" :class="{on: '/find' === $route.path}" @click="goto('/find')">
             <span class="item_icon">
-                <van-icon name="browsing-history-o" />
+                <van-icon name="browsing-history-o" badge="10"/>
             </span>
             <span class="item_text">发现</span>
         </span>
         <!-- 消息 -->
         <span class="guide_item" :class="{on: '/message' === $route.path}" @click="goto('/message')">
             <span class="item_icon">
-                <van-icon name="chat-o" />
+                <van-icon name="chat-o" dot/>
             </span>
             <span class="item_text">消息</span>
         </span>

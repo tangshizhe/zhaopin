@@ -2,6 +2,16 @@
   <layout>
     <template v-slot:main>
       <button @click="tologin()">登录/注册</button>
+      <van-cell-group>
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+        <van-cell title="单元格" icon="shop-o" is-link />
+      </van-cell-group>
     </template>
     <template v-slot:footer>
       <keep-alive>
