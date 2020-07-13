@@ -21,8 +21,15 @@
             <span class="options keyword">关键词</span>
           </div>
         </div>
-        <ul class="z-list">
-          <li class="list-page" v-for="(item,index) in list" :key="index">
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+        <van-list
+          v-model="loading"
+          :finished="finished"
+          finished-text="没有更多了"
+          @load="onLoad"
+          class="z-list"
+        >
+          <li class="list-page" v-for="(item,index) in lists" :key="index">
             <div class="position">
               <span class="pos-text">{{item.position}}</span>
               <span class="pos-salary">{{item.salary}}</span>
@@ -45,7 +52,8 @@
               <span class="pos-address">{{item.address}}</span>
             </div>
           </li>
-        </ul>
+        </van-list>
+    </van-pull-refresh>
       </slot>
     </div>
     <div class="j-footer">
@@ -60,7 +68,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Cell, CellGroup, Icon, DropdownMenu, DropdownItem } from 'vant'
+import { Cell, Toast, CellGroup, Icon, DropdownMenu, DropdownItem, List, Loading, PullRefresh } from 'vant'
 import { mapActions } from 'vuex'
 import FooterGuideVue from '@/components/FooterGuide.vue'
 @Component({
@@ -68,6 +76,9 @@ import FooterGuideVue from '@/components/FooterGuide.vue'
     FooterGuideVue,
     [Cell.name]: Cell,
     [Icon.name]: Icon,
+    [List.name]: List,
+    [PullRefresh.name]: PullRefresh,
+    [Loading.name]: Loading,
     [DropdownMenu.name]: DropdownMenu,
     [DropdownItem.name]: DropdownItem,
     [CellGroup.name]: CellGroup
@@ -80,6 +91,11 @@ import FooterGuideVue from '@/components/FooterGuide.vue'
 })
 export default class extends Vue {
   protected indexpage!: any
+  count = 0
+  isLoading = false
+  loading = false
+  finished = false
+  lists = []
   list = [
     {
       position: '网络信息安全工程师助理',
@@ -128,42 +144,48 @@ export default class extends Vue {
       image: '@/assets/logo.png',
       personCharge: '王五',
       manager: '人事经理'
-    },
-    {
-      position: '网络信息安全工程师助理',
-      salary: '4-6K',
-      address: '郑州',
-      condition: ['经验不限', '本科以上', '系统管理员', '机房运维'],
-      companyName: '碧桂园',
-      financing: '未融资',
-      manyPerson: '500-999人',
-      image: '@/assets/logo.png',
-      personCharge: '王五',
-      manager: '人事经理'
-    },
-    {
-      position: '网络信息安全工程师助理',
-      salary: '4-6K',
-      address: '郑州',
-      condition: ['经验不限', '本科以上', '系统管理员', '机房运维'],
-      companyName: '正商瑞钻',
-      financing: '未融资',
-      manyPerson: '500-999人',
-      image: '@/assets/logo.png',
-      personCharge: '王五',
-      manager: '人事经理'
     }
   ]
 
   imglink = ''
   sum = 0
   adminIndex = 0
-  loading = false
   created () {
     // 通过首次使用接口查询是否绑定手机号、是否有认证企业
     this.indexpage().then((res: any) => {
       console.log(res)
     })
+  }
+
+  mounted () {
+    this.onLoad()
+  }
+
+  // 下拉刷新
+
+  onRefresh () {
+    setTimeout(() => {
+      Toast('刷新成功')
+      this.isLoading = false
+      this.count++
+    }, 1000)
+  }
+
+  onLoad () {
+    // 异步更新数据
+    // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+    setTimeout(() => {
+      for (let i = 0; i < this.list.length; i++) {
+        console.log(this.list.length + 1)
+        this.lists.push(this.list[i])
+      }
+      // 加载状态结束
+      this.loading = false
+      // 数据全部加载完成
+      if (this.lists.length >= 5) {
+        this.finished = true
+      }
+    }, 1000)
   }
 }
 </script>
