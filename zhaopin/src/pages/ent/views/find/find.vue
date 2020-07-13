@@ -5,7 +5,7 @@
         <li class="post-list" v-for="(item,index) in 5" :key="index">
           <div class="list-infor">
             <div class="image-head">
-              <img src="../../../../assets/image/avatar.png" alt="">
+              <img src="@/assets/image/avatar.png" alt="">
             </div>
             <div class="nickname">
               <span class="nickname-top">

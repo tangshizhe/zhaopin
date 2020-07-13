@@ -29,7 +29,7 @@
           @load="onLoad"
           class="z-list"
         >
-          <li class="list-page" v-for="(item,index) in lists" :key="index">
+          <li class="list-page" v-for="(item,index) in list" :key="index">
             <div class="position">
               <span class="pos-text">{{item.position}}</span>
               <span class="pos-salary">{{item.salary}}</span>
@@ -71,6 +71,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { Cell, Toast, CellGroup, Icon, DropdownMenu, DropdownItem, List, Loading, PullRefresh } from 'vant'
 import { mapActions } from 'vuex'
 import FooterGuideVue from '@/components/FooterGuide.vue'
+import Mock from 'mockjs'
 @Component({
   components: {
     FooterGuideVue,
@@ -159,10 +160,11 @@ export default class extends Vue {
 
   mounted () {
     this.onLoad()
+    console.log(Mock.mock('@cparagraph()'))
+    Mock.mock('@cparagraph()')
   }
 
   // 下拉刷新
-
   onRefresh () {
     setTimeout(() => {
       Toast('刷新成功')
@@ -175,16 +177,17 @@ export default class extends Vue {
     // 异步更新数据
     // setTimeout 仅做示例，真实场景中一般为 ajax 请求
     setTimeout(() => {
-      for (let i = 0; i < this.list.length; i++) {
-        console.log(this.list.length + 1)
-        this.lists.push(this.list[i])
-      }
-      // 加载状态结束
-      this.loading = false
-      // 数据全部加载完成
-      if (this.lists.length >= 5) {
-        this.finished = true
-      }
+      // for (let i = 0; i < this.list.length; i++) {
+      //   console.log(this.list.length + 1)
+      //   // this.lists.push(this.list[i])
+      //   // this.lists = this.list
+      // }
+      // // 加载状态结束
+      // this.loading = false
+      // // 数据全部加载完成
+      // if (this.lists.length >= 5) {
+      //   this.finished = true
+      // }
     }, 1000)
   }
 }
